@@ -10,9 +10,11 @@
         <!-- Bootstrap -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
 
-        <!-- Estilo personificado-->
-        <link href="css/style.css" rel="stylesheet">
+        <!-- purecss -->
+        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
 
+        <!-- Estilo personificado -->
+        <link href="css/style.css" rel="stylesheet">
     </head>
     <body>
 
@@ -31,7 +33,7 @@
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
-                   
+
                     <form class="navbar-form navbar-left" role="search">
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="¿Que buscas?">
@@ -43,21 +45,85 @@
                         <li class="active"><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
                         <li><a href="#">Contacto</a></li>
                         <li><a href="#">Acerca de</a></li>
-                        <li><button type="button" class="btn btn-success navbar-btn" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus
-sagittis lacus vel augue laoreet rutrum faucibus."><span class="glyphicon glyphicon-user"></span> Iniciar Sesión</button></li>
+                        <li><button type="button" class="btn btn-success navbar-btn" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-user"></span> Iniciar Sesión</button></li>
                     </ul>
 
-                </div><!-- /.navbar-collapse -->
-            </div><!-- /.container-fluid -->
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">Entrar en nuestro servicio</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <form class="pure-form pure-form-stacked">
+                                                <fieldset>
+                                                    <legend>Inicio de Sesión</legend>
+
+                                                    <label for="email">Email</label>
+                                                    <input id="email" type="email" placeholder="Email">
+
+                                                    <label for="password">Password</label>
+                                                    <input id="password" type="password" placeholder="Password">
+
+                                                    <label for="remember" class="pure-checkbox">
+                                                        <input id="remember" type="checkbox"> Recordar
+                                                    </label>
+
+                                                    <button type="submit" class="pure-button pure-button-primary">Entrar</button>
+                                                </fieldset>
+                                            </form>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <form class="pure-form pure-form-stacked">
+                                                <fieldset>
+                                                    <legend>Registrarse</legend>
+
+
+                                                    <label for="nombre-reg">Nombre</label>
+                                                    <input id="nombre-reg" type="text" placeholder="Nombre">
+
+                                                    <label for="email-reg">Email</label>
+                                                    <input id="email-reg" type="email" placeholder="Email">
+
+                                                    <label for="email-rep">Repita el Email</label>
+                                                    <input id="email-rep" type="email" placeholder="Repita el Email">
+
+
+                                                    <label for="password-reg">Password</label>
+                                                    <input id="password-reg" type="password" placeholder="Password">
+
+
+                                                    <label for="password-rep" >Repita la Password</label>
+                                                    <input id="password-rep" class="margen-inf-20" type="password" placeholder="Repita la Password">
+                                                    <br/>
+                                                    <button type="submit" class="pure-button pure-button-primary">Registrarse</button>
+                                                </fieldset>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
         </nav>
         <div class="container">
             <h1>Hello, world!</h1>
         </div>
-        
+
 
         <!-- jQuery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <!-- Javascript para los efectos de bootstrap -->
         <script src="js/bootstrap.min.js"></script>
+        <script src="js/modal.js"></script>
     </body>
 </html>
