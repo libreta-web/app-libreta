@@ -36,3 +36,12 @@ and open the template in the editor.
         .button-secondary {
             background: rgb(66, 184, 221); /* this is a light blue */
         }
+.izq{
+    float: left;
+    position: absolute;
+}
+.der{
+    float: left;
+    position: absolute;
+    left: 35%;
+}
