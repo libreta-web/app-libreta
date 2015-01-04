@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
-        <title>Libreta | Info</title>
+        <title>Libreta | Contactos</title>
 
         <!-- Bootstrap -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -31,7 +31,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">ACERCA DE</a><p class="navbar-text">Conoce mas sobre nosotros...</p> 
+                    <a class="navbar-brand" href="#">CONTACTOS</a><p class="navbar-text">Revisa tus contactos</p> 
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -47,8 +47,8 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="index.html"><span class="glyphicon glyphicon-home"></span></a></li>
                         <li><a href="descargas.html"><span class="fa fa-download"></span>&nbsp; Descargas</a></li>
-                        <li><a href="contactos.php"><span class="fa fa-envelope-o"></span>&nbsp; Contacto</a></li>
-                        <li class="active"><a href="info.html"><span class="fa fa-info"></span>&nbsp; Acerca de</a></li>
+                        <li class="active"><a href="contactos.php"><span class="fa fa-envelope-o"></span>&nbsp; Contacto</a></li>
+                        <li><a href="info.html"><span class="fa fa-info"></span>&nbsp; Acerca de</a></li>
                         <li><button type="button" class="btn btn-success navbar-btn" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-user"></span> Entrar</button></li>
                     </ul>
 
@@ -80,33 +80,7 @@
                                                 </fieldset>
                                             </form>
                                         </div>
-                                        <div class="col-xs-6">
-                                            <form class="pure-form pure-form-stacked">
-                                                <fieldset>
-                                                    <legend>Registrarse</legend>
-
-
-                                                    <label for="nombre-reg">Nombre</label>
-                                                    <input id="nombre-reg" type="text" placeholder="Nombre" required>
-
-                                                    <label for="email-reg">Email</label>
-                                                    <input id="email-reg" type="email" placeholder="Email" required>
-
-                                                    <label for="email-rep">Repita el Email</label>
-                                                    <input id="email-rep" type="email" placeholder="Repita el Email" required>
-
-
-                                                    <label for="password-reg">Password</label>
-                                                    <input id="password-reg" type="password" placeholder="Password" required>
-
-
-                                                    <label for="password-rep" >Repita la Password</label>
-                                                    <input id="password-rep" class="margen-inf-20" type="password" placeholder="Repita la Password" required>
-                                                    <br/>
-                                                    <button type="submit" class="btn btn-primary">Registrarse</button>
-                                                </fieldset>
-                                            </form>
-                                        </div>
+                                        
                                     </div>
                                     <div class="modal-footer">
                                         <p class="text-info">Proximamente podras entrar usando tu cuenta de facebook, twitter u otra red social.</p>
@@ -119,11 +93,55 @@
                     </div><!-- /.navbar-collapse -->
                 </div><!-- /.container-fluid -->
         </nav>
-        <div class="container">
-            <div class="jumbotron">
-                <h1>Acerca De</h1>
-                <p>Esta página ha sido diseñada para brindar a los usuarios una herramienta que permita organizar, de la mejor manera posible, su tiempo y sus actividades de acuerdo a sus prioridades</p>
-                <p><a class="btn btn-primary btn-lg" href="#" role="button">Leer más</a></p>
+        <div class="container"> 
+            <div class="jumbotron izq">
+                    <form class="pure-form pure-form-stacked" action="op_contactos.php" method="post">
+                        <fieldset>
+                            <legend>Añadir Nuevo Contacto</legend>
+
+                                <label for="nombre-reg">Nombre</label>
+                                <input id="nombre-reg" type="text" placeholder="Ingrese nombre" required>
+
+                                <label for="nombre-reg">Apellido</label>
+                                <input id="nombre-reg" type="text" placeholder="Ingrese apellido" required>
+
+                                <label for="nombre-reg">Teléfono</label>
+                                <input id="nombre-reg" type="text" placeholder="Ingrese número teléfono" required>
+
+                                <label for="email-reg">Email</label>
+                                <input id="email-reg" type="email" placeholder="Ingrese email" required>
+
+                                <label for="nombre-reg">Dirección</label>
+                                <input id="nombre-reg" type="text" placeholder="Ingrese dirección" required>
+                                </br>
+                                <button type="submit" class="btn btn-primary" name="agregar" value="agregar">Agregar Contacto</button>
+                        </fieldset>
+                    </form>
+            </div>
+            <div class="jumbotron der">
+                    <form class="pure-form pure-form-stacked">
+                        <fieldset>
+                            <legend>Mi Lista De Contactos</legend>
+                            <?php
+                            include('conexion.php');
+                            $link = Conectarse();
+
+                            $sql=" select * from personas"; 
+                            $datos=mysql_query($sql,$link); 
+                            while ($row=mysql_fetch_array($datos)) { //Bucle para ver todos los registros
+                            $nombre=$row['nombre'];
+                            $apellido=$row['apellido'];
+                            $telefono=$row['telefono']; 
+                            $email=$row['email']; 
+                            $direccion=$row['direccion'];
+                            echo"<table border=2 width=700px><tr><td>Nombre</td><td>Apellido</td><td>Telefono</td><td>Email</td><td>Direccion</td></tr>";
+                            echo "<tr><td>$nombre</td><td>$apellido</td><td>$telefono</td><td>$email</td><td>$direccion</td>"; //visualizar datos
+                            echo"</tr></table>";
+                            }
+                            mysql_close($link);//cerrar conexion
+?>
+                        </fieldset>
+                    </form>
             </div>
         </div>
 
