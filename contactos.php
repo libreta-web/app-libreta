@@ -18,6 +18,12 @@
 
         <!-- font awesone(iconos) -->
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+        
+         <!-- jQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <!-- Javascript para los efectos de bootstrap -->
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/modal.js"></script>
     </head>
     <body>
 
@@ -31,7 +37,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">CONTACTOS</a><p class="navbar-text">Revisa tus contactos</p> 
+                    <a class="navbar-brand" href="#">HOME</a><p class="navbar-text">Estas en la pagina principal</p> 
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -45,7 +51,7 @@
                     </form>
 
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="index.html"><span class="glyphicon glyphicon-home"></span></a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
                         <li><a href="descargas.html"><span class="fa fa-download"></span>&nbsp; Descargas</a></li>
                         <li class="active"><a href="contactos.php"><span class="fa fa-envelope-o"></span>&nbsp; Contacto</a></li>
                         <li><a href="info.html"><span class="fa fa-info"></span>&nbsp; Acerca de</a></li>
@@ -80,7 +86,33 @@
                                                 </fieldset>
                                             </form>
                                         </div>
-                                        
+                                        <div class="col-xs-6">
+                                            <form class="pure-form pure-form-stacked">
+                                                <fieldset>
+                                                    <legend>Registrarse</legend>
+
+
+                                                    <label for="nombre-reg">Nombre</label>
+                                                    <input id="nombre-reg" type="text" placeholder="Nombre" required>
+
+                                                    <label for="email-reg">Email</label>
+                                                    <input id="email-reg" type="email" placeholder="Email" required>
+
+                                                    <label for="email-rep">Repita el Email</label>
+                                                    <input id="email-rep" type="email" placeholder="Repita el Email" required>
+
+
+                                                    <label for="password-reg">Password</label>
+                                                    <input id="password-reg" type="password" placeholder="Password" required>
+
+
+                                                    <label for="password-rep" >Repita la Password</label>
+                                                    <input id="password-rep" class="margen-inf-20" type="password" placeholder="Repita la Password" required>
+                                                    <br/>
+                                                    <button type="submit" class="btn btn-primary">Registrarse</button>
+                                                </fieldset>
+                                            </form>
+                                        </div>
                                     </div>
                                     <div class="modal-footer">
                                         <p class="text-info">Proximamente podras entrar usando tu cuenta de facebook, twitter u otra red social.</p>
@@ -95,57 +127,57 @@
         </nav>
         <div class="container"> 
             <div class="jumbotron izq">
-                    <form class="pure-form pure-form-stacked" action="op_contactos.php" method="post">
-                        <fieldset>
-                            <legend>Añadir Nuevo Contacto</legend>
+                <form class="pure-form pure-form-stacked" action="op_contactos.php" method="post">
+                    <fieldset>
+                        <legend>Añadir Nuevo Contacto</legend>
 
-                                <label for="nombre-reg">Nombre</label>
-                                <input id="nombre-reg" type="text" placeholder="Ingrese nombre" required>
+                        <label for="nombre-reg">Nombre</label>
+                        <input id="nombre-reg" type="text" placeholder="Ingrese nombre" required>
 
-                                <label for="nombre-reg">Apellido</label>
-                                <input id="nombre-reg" type="text" placeholder="Ingrese apellido" required>
+                        <label for="nombre-reg">Apellido</label>
+                        <input id="nombre-reg" type="text" placeholder="Ingrese apellido" required>
 
-                                <label for="nombre-reg">Teléfono</label>
-                                <input id="nombre-reg" type="text" placeholder="Ingrese número teléfono" required>
+                        <label for="nombre-reg">Teléfono</label>
+                        <input id="nombre-reg" type="text" placeholder="Ingrese número teléfono" required>
 
-                                <label for="email-reg">Email</label>
-                                <input id="email-reg" type="email" placeholder="Ingrese email" required>
+                        <label for="email-reg">Email</label>
+                        <input id="email-reg" type="email" placeholder="Ingrese email" required>
 
-                                <label for="nombre-reg">Dirección</label>
-                                <input id="nombre-reg" type="text" placeholder="Ingrese dirección" required>
-                                </br>
-                                <button type="submit" class="btn btn-primary" name="agregar" value="agregar">Agregar Contacto</button>
-                        </fieldset>
-                    </form>
+                        <label for="nombre-reg">Dirección</label>
+                        <input id="nombre-reg" type="text" placeholder="Ingrese dirección" required>
+                        </br>
+                        <button type="submit" class="btn btn-primary" name="agregar" value="agregar">Agregar Contacto</button>
+                    </fieldset>
+                </form>
             </div>
             <div class="jumbotron der">
-                    <form class="pure-form pure-form-stacked">
-                        <fieldset>
-                            <legend>Mi Lista De Contactos</legend>
-                            <?php
-                            include('conexion.php');
-                            $link = Conectarse();
+                <form class="pure-form pure-form-stacked">
+                    <fieldset>
+                        <legend>Mi Lista De Contactos</legend>
+                        <?php
+                        include('conexion.php');
+                        $link = Conectarse();
 
-                            $sql=" select * from personas"; 
-                            $datos=mysql_query($sql,$link); 
-                            while ($row=mysql_fetch_array($datos)) { //Bucle para ver todos los registros
-                            $nombre=$row['nombre'];
-                            $apellido=$row['apellido'];
-                            $telefono=$row['telefono']; 
-                            $email=$row['email']; 
-                            $direccion=$row['direccion'];
+                        $sql = " select * from personas";
+                        $datos = mysql_query($sql, $link);
+                        while ($row = mysql_fetch_array($datos)) { //Bucle para ver todos los registros
+                            $nombre = $row['nombre'];
+                            $apellido = $row['apellido'];
+                            $telefono = $row['telefono'];
+                            $email = $row['email'];
+                            $direccion = $row['direccion'];
                             echo"<table border=2 width=700px><tr><td>Nombre</td><td>Apellido</td><td>Telefono</td><td>Email</td><td>Direccion</td></tr>";
                             echo "<tr><td>$nombre</td><td>$apellido</td><td>$telefono</td><td>$email</td><td>$direccion</td>"; //visualizar datos
                             echo"</tr></table>";
-                            }
-                            mysql_close($link);//cerrar conexion
-?>
-                        </fieldset>
-                    </form>
+                        }
+                        mysql_close($link); //cerrar conexion
+                        ?>
+                    </fieldset>
+                </form>
             </div>
         </div>
 
-       
+
         <!-- jQuery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <!-- Javascript para los efectos de bootstrap -->
