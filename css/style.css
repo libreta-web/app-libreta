@@ -12,6 +12,10 @@ and open the template in the editor.
     font-family: 'Nunito', sans-serif;
 }
 
+.menu{
+    background-color: #E8EAF6;
+}
+
 .margen-inf-20{
     
     margin-bottom: 20px;
