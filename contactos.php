@@ -162,8 +162,8 @@
                         $link = Conectarse();
 
                         $sql = " select * from personas";
-                        $datos = mysql_query($sql, $link);
-                        while ($row = mysql_fetch_array($datos)) { //Bucle para ver todos los registros
+                        $datos = mysqli_query($link,$sql);
+                        while ($row = mysqli_fetch_array($datos)) { //Bucle para ver todos los registros
                             $nombre = $row['nombre'];
                             $apellido = $row['apellido'];
                             $telefono = $row['telefono'];
@@ -173,7 +173,7 @@
                             echo "<tr><td>$nombre</td><td>$apellido</td><td>$telefono</td><td>$email</td><td>$direccion</td>"; //visualizar datos
                             echo"</tr></table>";
                         }
-                        mysql_close($link); //cerrar conexion
+                        mysqli_close($link); //cerrar conexion
                         ?>
                     </fieldset>
                 </form>
