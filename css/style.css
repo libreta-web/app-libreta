@@ -20,6 +20,9 @@ body {
     font-family: 'Nunito', sans-serif;
 }
 
+.navbar{
+    border-radius: 0px;
+}
 .navbar-default{
     background-color: #E0F2F1;
 }
