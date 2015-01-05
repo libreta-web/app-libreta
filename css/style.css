@@ -8,6 +8,10 @@ and open the template in the editor.
     Author     : Victor
 */
 
+*{
+    font-family: 'Nunito', sans-serif;
+}
+
 .margen-inf-20{
     
     margin-bottom: 20px;

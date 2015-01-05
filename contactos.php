@@ -24,6 +24,8 @@
         <!-- Javascript para los efectos de bootstrap -->
         <script src="js/bootstrap.min.js"></script>
         <script src="js/modal.js"></script>
+        
+         <link href='http://fonts.googleapis.com/css?family=Nunito:400,300,700' rel='stylesheet' type='text/css'>
     </head>
     <body>
 
@@ -51,7 +53,7 @@
                     </form>
 
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
+                        <li><a href="index.html"><span class="glyphicon glyphicon-home"></span></a></li>
                         <li><a href="descargas.html"><span class="fa fa-download"></span>&nbsp; Descargas</a></li>
                         <li class="active"><a href="contactos.php"><span class="fa fa-envelope-o"></span>&nbsp; Contacto</a></li>
                         <li><a href="info.html"><span class="fa fa-info"></span>&nbsp; Acerca de</a></li>
