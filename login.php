@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -18,7 +22,7 @@
 
         <!-- font awesone(iconos) -->
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-        
+
         <link href='http://fonts.googleapis.com/css?family=Nunito:400,300,700' rel='stylesheet' type='text/css'>
     </head>
     <body>
@@ -39,7 +43,7 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
 
-                    
+
 
                     <ul class="nav navbar-nav navbar-right">
                         <li class="active"><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
@@ -68,7 +72,7 @@
                                             <form class="pure-form pure-form-stacked" action="oper/login.php" method="post">
                                                 <fieldset>
                                                     <legend>Inicio de Sesión</legend>
-                                                    
+
                                                     <label for="email">Email</label>
                                                     <input id="email" name="email" type="email" class="pure-input-1" placeholder="Email" required="required">
 
@@ -126,17 +130,49 @@
         <div class="container">
             <div class="jumbotron">
                 <h1>Libreta</h1>
-                <p>En esta pagina podras guardar toda la informacion de tus contactos, organizar eventos... </p>
-                <p><a class="btn btn-primary btn-lg" role="button" data-toggle="collapse" href="#collapseLeerMas" data-aria-expanded="false" data-aria-controls="collapseLeerMas">Leer más</a></p>
-                <div class="collapse" id="collapseLeerMas">
-  <div class="well">
-    mdsjfs fsdfjsdof fsdfonr freferghtyujk uikui l ioiñp  
-  </div>
-</div>
+                <form class="pure-form pure-form-stacked" action="oper/login.php" method="post">
+                    <fieldset>
+                        <legend>Inicio de Sesión</legend>
+                        <label for="email2">Email</label>
+                        <input id="email2" name="email" type="email" class="pure-input-1" placeholder="Email" required="required">
+
+                         <?php
+                        if (isset($_SESSION['no_user'])) {
+                            ?>
+                            <div class="alert alert-danger alert-dismissible fade in">
+                                <a href="#" class="close" data-dismiss="alert">&times;</a>
+                                <strong>No existe el usuario</strong>
+                            </div>
+                            <?php
+                        }
+                            ?>
+                        
+                        <label for="password2">Password</label>
+                        <input id="password2" type="password" name="password" class="pure-input-1"  placeholder="Password" required="required">
+
+                        <?php
+                        if (isset($_SESSION['no_pass'])) {
+                            ?>
+                            <div class="alert alert-danger alert-dismissible fade in">
+                                <a href="#" class="close" data-dismiss="alert">&times;</a>
+                                <strong>Password incorrecta!</strong>
+                            </div>
+                            <?php
+                        }
+                            session_unset();
+                            session_destroy();
+                            ?>
+                        <label for="remember" class="pure-checkbox">
+                            <input id="remember" type="checkbox"> Recordar
+                        </label>
+
+                        <button type="submit" class="btn btn-success">Iniciar Sesión</button>
+                    </fieldset>
+                </form>
             </div>
         </div>
 
-       
+
         <!-- jQuery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <!-- Javascript para los efectos de bootstrap -->

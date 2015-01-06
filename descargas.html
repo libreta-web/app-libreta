@@ -64,21 +64,21 @@
                                 <div class="modal-body">
                                     <div class="row">
                                         <div class="col-xs-6">
-                                            <form class="pure-form pure-form-stacked">
+                                            <form class="pure-form pure-form-stacked" action="">
                                                 <fieldset>
                                                     <legend>Inicio de Sesión</legend>
 
                                                     <label for="email">Email</label>
-                                                    <input id="email" type="email" placeholder="Email" required="required">
+                                                    <input id="email" type="email" name="email" placeholder="Email" required="required">
 
                                                     <label for="password">Password</label>
-                                                    <input id="password" type="password" placeholder="Password" required="required">
+                                                    <input id="password" type="password" name="password" placeholder="Password" required="required">
 
-                                                    <label for="remember" class="pure-checkbox">
-                                                        <input id="remember" type="checkbox"> Recordar
+                                                    <label for="recordar" class="pure-checkbox">
+                                                        <input id="recordar" name="recordar" type="checkbox"> Recordar
                                                     </label>
 
-                                                    <button type="submit" class="btn btn-success">Iniciar Sesión</button>
+                                                    <button type="submit" name="submit" class="btn btn-success">Iniciar Sesión</button>
                                                 </fieldset>
                                             </form>
                                         </div>
