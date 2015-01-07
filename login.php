@@ -46,7 +46,7 @@ session_start();
 
 
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="active"><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
+                        <li class="active"><a href="index.html"><span class="glyphicon glyphicon-home"></span></a></li>
                         <li><a href="descargas.html"><span class="fa fa-download"></span>&nbsp; Descargas</a></li>
                         <li><a href="contacto.html"><span class="fa fa-envelope-o"></span>&nbsp; Contacto</a></li>
                         <li><a href="info.html"><span class="fa fa-info"></span>&nbsp; Acerca de</a></li>

@@ -20,6 +20,11 @@ body {
     font-family: 'Nunito', sans-serif;
 }
 
+.display-block{
+    position: relative;
+    padding: 5px;
+}
+
 .navbar{
     border-radius: 0px;
 }
