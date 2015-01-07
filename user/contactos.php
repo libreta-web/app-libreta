@@ -8,13 +8,13 @@
         <title>Libreta | Contactos</title>
 
         <!-- Bootstrap -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
 
         <!-- purecss -->
         <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
 
         <!-- Estilo personificado -->
-        <link href="css/style.css" rel="stylesheet">
+        <link href="../css/style.css" rel="stylesheet">
 
         <!-- font awesone(iconos) -->
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
@@ -22,8 +22,8 @@
          <!-- jQuery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <!-- Javascript para los efectos de bootstrap -->
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/modal.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script src="../js/modal.js"></script>
         
          <link href='http://fonts.googleapis.com/css?family=Nunito:400,300,700' rel='stylesheet' type='text/css'>
     </head>
