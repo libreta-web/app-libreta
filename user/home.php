@@ -6,6 +6,7 @@
  */
 
 session_start();
+if (isset($_SESSION['nombre'])){
 $nombre = $_SESSION['nombre'];
 $apellido = $_SESSION['apellido'];
 $direccion = $_SESSION['direccion'];
@@ -28,7 +29,7 @@ $fecha_creacion = $_SESSION['fecha_creacion'];
         <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
 
         <!-- Estilo personificado -->
-        <link href="../css/style.css" rel="stylesheet">
+        <link href="../css/style_user.css" rel="stylesheet">
 
         <!-- font awesone(iconos) -->
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
@@ -60,9 +61,9 @@ $fecha_creacion = $_SESSION['fecha_creacion'];
 
                     <ul class="nav navbar-nav navbar-right">
                         <li class="active"><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
-                        <li><a href="mensajes.php"><span class="fa fa-envelope"></span>&nbsp; Mensajes</a></li>
+                        <li><a href="mensajes.php"><span class="fa fa-envelope"></span>&nbsp; Mensajes <strong><?php echo '(5)';?></strong></a></li>
                         <li><a href="contactos.php"><span class="fa fa-users"></span>&nbsp; Contactos</a></li>
-                        <li>&nbsp;&nbsp;<div class="btn-group display-block">
+                        <li>&nbsp;&nbsp;<div class="btn-group navbar-btn">
                                 <a class="btn btn-primary" href="perfil.php"><i class="fa fa-user fa-fw"></i> Mi Perfil</a>
                                 <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="">
                                     <span class="fa fa-caret-down"></span></a>
@@ -87,6 +88,7 @@ $fecha_creacion = $_SESSION['fecha_creacion'];
             </div><!-- /.container-fluid -->
         </nav>
         <div class="container">
+           
             <div class="jumbotron">
                 <h1>Bienvenido <?php echo "$nombre $apellido"; ?></h1>
                 <p>En esta pagina podras guardar toda la informacion de tus contactos, organizar eventos... </p>
@@ -99,6 +101,20 @@ $fecha_creacion = $_SESSION['fecha_creacion'];
             </div>
         </div>
 
+        <?php
+
+} else {
+    ?>        
+        <script>
+        alert("ERROR: Inicie sesion o registrese para poder ver esta pagina");
+        window.location.href="../";    
+        </script>
+<?php
+}
+?>
+        <footer id="footer">
+            <p class="text-center text-info">Todos los derechos reservados. (<a href="">Ver Politicas de uso de cookies.</a>)</p>
+        </footer>
 
         <!-- jQuery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -107,4 +123,3 @@ $fecha_creacion = $_SESSION['fecha_creacion'];
         <script src="../js/modal.js"></script>
     </body>
 </html>
-
