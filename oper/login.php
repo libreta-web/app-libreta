@@ -46,10 +46,10 @@ if (!empty($emailsql) || !is_null($emailsql)) {
         $fecha_creacion = $row['fecha_creacion'];
     }
         
-        $_SESSION['nombre'] = $nombre;
-        $_SESSION['apellido'] = $apellido;
-        $_SESSION['direccion'] = $direccion;
-        $_SESSION['telefono'] = $telefono;
+        $_SESSION['nombre'] = utf8_encode($nombre);
+        $_SESSION['apellido'] = utf8_encode($apellido);
+        $_SESSION['direccion'] = utf8_encode($direccion);
+        $_SESSION['telefono'] = utf8_encode($telefono);
         $_SESSION['fecha_creacion'] = $fecha_creacion;
         mysqli_close($link);
         header('Location: ../user/home.php');
