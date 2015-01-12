@@ -50,6 +50,9 @@ color: #000;
     margin-top: .7em;
     font-size: .7em;
 }
+#footer > p > a{
+    color: #616161;
+}
 .navbar{
     border: #1976D2;
     border-radius: 0px;
