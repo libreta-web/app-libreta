@@ -42,9 +42,9 @@ if (isset($_SESSION['nombre'])) {
             <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
         </head>
         <body>
-            <header>
+            <header >
                 <nav class="navbar navbar-default navbar-fixed-top">
-                    <div class="container-fluid">
+                    <div class="container">
                         <!-- Brand and toggle get grouped for better mobile display -->
                         <div class="navbar-header">
                             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -92,7 +92,7 @@ if (isset($_SESSION['nombre'])) {
                 </nav>
             </header>
             <div id="notas" class="marcador"></div>
-            <article class="contenedor">
+            <article class="container-fluid">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="nav nav-pills col-xs-12 col-md-2 visible-md visible-lg navbar-fixed-left alert alert-info">

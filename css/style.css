@@ -18,6 +18,7 @@ body {
 
 *{
     font-family: 'Nunito', sans-serif;
+    box-sizing: border-box;
 }
 
 .display-block{
@@ -30,6 +31,7 @@ body {
 }
 .navbar-default{
     background-color: #E0F2F1;
+    box-shadow: 0 1px 5px #999;
 }
 
 .margen-inf-20{
@@ -68,4 +70,21 @@ body {
     float: left;
     position: absolute;
     left: 35%;
+}
+.logo{
+    background-color: #000;
+    color: whitesmoke;
+    text-align: center;
+    font-size: 6em;
+    font-family: "Segoe UI";
+}
+.logo span{
+    font-size: 14pt;
+}
+.menu-fixed{
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    width: 100%;
+    box-shadow: 0 1px 5px #999;
 }
