@@ -8,7 +8,7 @@ and open the template in the editor.
     Author     : Victor
 */
 body {
-    background: url(../img/agenda.png) no-repeat center center fixed; 
+    background: #BDBDBD; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -76,6 +76,7 @@ body {
     color: whitesmoke;
     text-align: center;
     font-size: 6em;
+    font-weight: 200;
     font-family: "Segoe UI";
 }
 .logo span{

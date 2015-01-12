@@ -10,7 +10,7 @@ and open the template in the editor.
 body { padding-top: 70px; }
 
 body {
-    background: url(../img/agenda.png) no-repeat center center fixed; 
+    background: #BDBDBD;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
