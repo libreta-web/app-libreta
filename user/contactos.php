@@ -29,7 +29,7 @@
     </head>
     <body>
 
-        <nav class="navbar navbar-default">
+        <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
@@ -130,24 +130,24 @@
         </nav>
         <div class="container"> 
             <div class="jumbotron izq">
-                <form class="pure-form pure-form-stacked" action="op_contactos.php" method="post">
+                <form class="pure-form pure-form-stacked" action="../oper/op_contactos.php" method="post">
                     <fieldset>
                         <legend>Añadir Nuevo Contacto</legend>
 
                         <label for="nombre-reg">Nombre</label>
-                        <input id="nombre-reg" type="text" placeholder="Ingrese nombre" required>
+                        <input id="nombre-reg" type="text" name="nombre" placeholder="Ingrese nombre" required>
 
                         <label for="nombre-reg">Apellido</label>
-                        <input id="nombre-reg" type="text" placeholder="Ingrese apellido" required>
+                        <input id="nombre-reg" type="text" name="apellido" placeholder="Ingrese apellido" required>
 
                         <label for="nombre-reg">Teléfono</label>
-                        <input id="nombre-reg" type="text" placeholder="Ingrese número teléfono" required>
+                        <input id="nombre-reg" type="text" name="telefono" placeholder="Ingrese número teléfono" required>
 
                         <label for="email-reg">Email</label>
-                        <input id="email-reg" type="email" placeholder="Ingrese email" required>
+                        <input id="email-reg" type="email" name="email" placeholder="Ingrese email" required>
 
                         <label for="nombre-reg">Dirección</label>
-                        <input id="nombre-reg" type="text" placeholder="Ingrese dirección" required>
+                        <input id="nombre-reg" type="text" name="direccion" placeholder="Ingrese dirección" required>
                         </br>
                         <button type="submit" class="btn btn-primary" name="agregar" value="agregar">Agregar Contacto</button>
                     </fieldset>
@@ -157,24 +157,39 @@
                 <form class="pure-form pure-form-stacked">
                     <fieldset>
                         <legend>Mi Lista De Contactos</legend>
+                        <table class="table"> 
+     						<tr>   
+     							<td width='300' style='font-weight: bold'>NOMBRE</td>   
+      							<td width='300' style='font-weight: bold'></td>  
+    						</tr> 
                         <?php
-                        include('conexion.php');
+                        include('../conexion.php');
                         $link = Conectarse();
 
-                        $sql = " select * from personas";
-                        $datos = mysqli_query($link,$sql);
-                        while ($row = mysqli_fetch_array($datos)) { //Bucle para ver todos los registros
-                            $nombre = $row['nombre'];
-                            $apellido = $row['apellido'];
-                            $telefono = $row['telefono'];
-                            $email = $row['email'];
-                            $direccion = $row['direccion'];
-                            echo"<table border=2 width=700px><tr><td>Nombre</td><td>Apellido</td><td>Telefono</td><td>Email</td><td>Direccion</td></tr>";
-                            echo "<tr><td>$nombre</td><td>$apellido</td><td>$telefono</td><td>$email</td><td>$direccion</td>"; //visualizar datos
-                            echo"</tr></table>";
-                        }
-                        mysqli_close($link); //cerrar conexion
-                        ?>
+    					$query = "select * from personas ORDER BY id DESC";     // Esta linea hace la consulta 
+    					$result = mysqli_query($link, $query) or die(mysql_error());
+
+    					while ($registro = mysqli_fetch_array($result)){  
+						echo "  
+    						<tr>  
+      							<td width='300'>".$registro['nombre']."</td>
+      							<td width='300'><a data-toggle='modal' href='#static' ref=".$registro['id']." title='Ver la ficha completa'>Más información</a></td>  
+
+    						</tr>  
+						";  
+						} 
+						mysqli_close($link); //cerrar conexion
+						?>
+						</table>
+						    <div id="static" class="modal fade" tabindex="-1" data-backdrop="static" data-keyboard="false" style="display: none;">
+    <div class="modal-body">
+    <p>Would you like to continue with some arbitrary task?</p>
+    </div>
+    <div class="modal-footer">
+    <button type="button" data-dismiss="modal" class="btn btn-default">Cancel</button>
+    <button type="button" data-dismiss="modal" class="btn btn-primary">Continue Task</button>
+    </div>
+    </div>
                     </fieldset>
                 </form>
             </div>
