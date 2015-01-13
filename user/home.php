@@ -12,6 +12,7 @@ if (isset($_SESSION['nombre'])) {
     $direccion = $_SESSION['direccion'];
     $telefono = $_SESSION['telefono'];
     $fecha_creacion = $_SESSION['fecha_creacion'];
+    $email=$_SESSION['email'];
     ?>
     <!DOCTYPE html>
     <html lang="es">
@@ -35,7 +36,7 @@ if (isset($_SESSION['nombre'])) {
             <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
             <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-            
+            <link href='http://fonts.googleapis.com/css?family=Titillium+Web' rel='stylesheet' type='text/css'>
             <link href='http://fonts.googleapis.com/css?family=Nunito:400,300,700' rel='stylesheet' type='text/css'>
 
             <!-- Font Awesone-->
@@ -91,21 +92,65 @@ if (isset($_SESSION['nombre'])) {
                     </div><!-- /.container-fluid -->
                 </nav>
             </header>
-            <div id="notas" class="marcador"></div>
+           
             <article class="container-fluid">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="nav nav-pills col-xs-12 col-md-2 visible-md visible-lg navbar-fixed-left alert alert-info">
                             <ul class="nav nav-pills nav-stacked">
                                 <li role="presentation"><a id="ir-crear-nota"><i class="fa fa-pencil-square-o"></i>&nbsp;&nbsp;Crear una nota</a></li>
-                                <li role="presentation"><a id="ir">Notas importantes</a></li>
+                                <li role="presentation"><a id="ir">Ultimas notas</a></li>
                                 <li role="presentation"><a id="ir-notas-amigos">Notas de mis amigos</a></li>
                                 <li role="presentation"><a id="Actualizar"><i  class="fa fa-refresh fa-spin"></i>&nbsp;&nbsp;Actualizar Vistas</a></li>
                             </ul>
                         </div>
                         <div class="col-xs-12 col-md-offset-2 col-md-10">
+                            
+                             <div id="crear-nota" class="marcador"></div>
+                             <form class="pure-form pure-form-stacked" autocomplete="off" name="crear-nota" method="post" action="home.php">
+                             <div class="jumbotron">
+                            <h1>Crear nota</h1>
+                            <div class="row">
+                                <div class="col-md-12">Titulo de la nota</div>
+                                <div class="col-md-12">
+                                    <input type="text" class="pure-input-1" name="txt_titulo" required="required"/>
+                                </div>
+                                
+                                <div class="col-md-12">Contenido</div>
+                                <?php
+                                    if (!empty($_POST['txt_titulo'])) {
+                                        $titulo=  filter_input(INPUT_POST, "txt_titulo");
+                                        $contenido= filter_input(INPUT_POST, "txt_contenido");
+                                        include('../conexion.php');
+                                        $link=  Conectarse();
+                                        
+                                        $cadSql="INSERT INTO notas (`id_nota`, `titulo`, `contenido`, `email`, `fecha_nota`) VALUES (NULL, '$titulo', '$contenido', '$email', NOW());";
+                                        if (mysqli_query($link, $cadSql)){
+                                            ?>
+                                <script>
+                                alert('Exito al guardar la nota');
+                                                            window.location.href="home.php";</script>
+                                <?php
+                                        }  else {
+                                            ?>
+                                <script>
+                                alert('no se guardo con exito')</script>
+                                <?php   
+                                        }
+                                        
+                                    }
+                                ?>
+                                <div class="col-md-12">
+                                    <textarea class="pure-input-1" name="txt_contenido" required="required"></textarea>
+                                </div>
+                            </div>
+                                
+                            <p><button type="submit" class="btn btn-success">Guardar Nota</button></p>
+                            </div>
+                             </form>
+                             <div id="notas" class="marcador"></div>
                             <div class="jumbotron">
-                            <h1 >Notas importantes</h1>
+                            <h1 >Ultimas notas</h1>
                             <div class="row">
                                 <div class="col-xs-12 col-md-3">
                                     <h3>Lorem</h3>
@@ -151,31 +196,6 @@ if (isset($_SESSION['nombre'])) {
                             </div>
                             <p><a class="btn btn-success">Más noticas de la web.</a></p>
                             </div>
-                            <div id="crear-nota" class="marcador"></div>
-                            <div class="jumbotron">
-                            <h1>Crear nota</h1>
-                            <div class="row">
-                                <div class="col-xs-12 col-md-3">
-                                    <h3>Lorem</h3>
-                                    <p class="text-justify">Lorejdas asd asdasd as dasd asd as das das d as das d as ds fg rty tu y hfgd sad</p>
-                                    <p><a href="" class="btn btn-info">Leer más</a></p>
-                                </div><div class="col-xs-12 col-md-3">
-                                    <h3>Lorem</h3>
-                                    <p class="text-justify">Lorejdas asd asdasd as dasd asd as das das d as das d as ds fg rty tu y hfgd sad</p>
-                                    <p><a href="" class="btn btn-info">Leer más</a></p>
-                                </div><div class="col-xs-12 col-md-3">
-                                    <h3>Lorem</h3>
-                                    <p class="text-justify">Lorejdas asd asdasd as dasd asd as das das d as das d as ds fg rty tu y hfgd sad</p>
-                                    <p><a href="" class="btn btn-info">Leer más</a></p>
-                                </div><div class="col-xs-12 col-md-3">
-                                    <h3>Lorem</h3>
-                                    <p class="text-justify">Lorejdas asd asdasd as dasd asd as das das d as das d as ds fg rty tu y hfgd sad</p>
-                                    <p><a href="" class="btn btn-info">Leer más</a></p>
-                                </div>
-                            </div>
-                            <p><a class="btn btn-success">Más noticas de la web.</a></p>
-                            </div>
-                            
                         </div>
                     </div>
                 </div>
