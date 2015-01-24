@@ -45,7 +45,7 @@ if (!empty($emailsql) || !is_null($emailsql)) {
         $telefono = $row['telefono'];
         $fecha_creacion = $row['fecha_creacion'];
     }
-        
+        $_SESSION['email']=  utf8_encode($email);
         $_SESSION['nombre'] = utf8_encode($nombre);
         $_SESSION['apellido'] = utf8_encode($apellido);
         $_SESSION['direccion'] = utf8_encode($direccion);

@@ -18,12 +18,19 @@ $(document).on("ready",function(){
             // Recargo la página
             location.reload();
         });
-        var altura=$(".menu").offset().top;
+        var altura=$(window).height();
         $(window).on('scroll',function (){
             if($(window).scrollTop()>altura){
                 $('.menu').addClass('menu-fixed');
             }else {
                 $('.menu').removeClass('menu-fixed');
             }
+        });
+        var alturas=$(window).height();
+        $('.contenedor-navs').css({ height: alturas,"max-height":"100%","min-height":"100%"});
+        
+    $(window).on("resize", function (){
+        var alturas=$(window).height();
+             $('.contenedor-navs').css({ height: alturas,"max-height":"100%","min-height":"100%"});
         });
 });

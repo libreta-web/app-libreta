@@ -32,6 +32,7 @@ body {
 .navbar-default{
     background-color: #E0F2F1;
     box-shadow: 0 1px 5px #999;
+    
 }
 
 .margen-inf-20{
@@ -78,6 +79,7 @@ body {
     font-size: 6em;
     font-weight: 200;
     font-family:'Titillium Web', 'Poiret One',"Segoe UI";
+    height: 100%;
 }
 .logo span{
     font-size: 14pt;
@@ -94,4 +96,8 @@ body {
 }
 .well{
     box-shadow: 0 1px 5px #999 inset;
+}
+.contenedor-navs{
+    position: relative;
+    max-width: 100%;
 }
