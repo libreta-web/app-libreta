@@ -104,11 +104,12 @@ body {
 .logo > h1{
     margin: 0px;
     padding: 0px;
+    font-size: 1em;
     
 }
 .logo {
      /* Location of the image */
-    background-image: url(../img/fondo.jpg);
+    background-image: url(../img/354583-admin.jpg);
   
   /* Background image is centered vertically and horizontally at all times */
   background-position: center center;
@@ -127,8 +128,13 @@ body {
      while the background image is loading */
   background-color: #464646;
 }
+
 .intro > p{
-    font-size: .2em;
+    font-size: .3em;
+    margin-top: 2em;
+}
+.intro > p > a{
+    font-size: 1em;
 }
 .btn-intro
 {
@@ -145,6 +151,23 @@ body {
     color: #0078e7;
     text-decoration: none;
 }
+.txt-intro
+{
+    font-size: 16pt;
+    border: 1px solid #dcdcdc;
+    border-radius: 8pt;
+    color: #dcdcdc;
+    text-decoration: none;
+    cursor: auto;
+    background-color: transparent;
+    text-align: center;
+    outline: transparent;
+    padding: 5px;
+}
+.txt-intro:focus{
+    border-color: #0078e7;
+    color: #0078e7;
+}
 .bajar {
     font-size: .2em;
     position: absolute;
@@ -152,4 +175,10 @@ body {
     bottom:0px;
     width:100%;
 }
-
+p {
+    font-family: "Open sans", sans-serif;
+    font-weight: 300;
+}
+body {
+    overflow-y: auto;
+}
